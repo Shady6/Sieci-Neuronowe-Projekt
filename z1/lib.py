@@ -29,8 +29,9 @@ def calc_y_plot(curr_weights, x_plot):
                  for wj in curr_weights[1:-1]])
 
 
-def plot(x_input, x_plot, ys_plot, weights, iterations):
-    plt.scatter(x_input[:, 2:], x_input[:, 1:2])
+def plot(x_input, x_plot, ys_plot, weights, iterations, y):
+    colors = ['green' if yi else 'red' for yi in y]
+    plt.scatter(x_input[:, 2:], x_input[:, 1:2], c=colors)
     # Lini narysowanych jest iterations+1, poniewaz
     # rysujemy jeszcze dla wag poczatkowych, czego nie
     # uznaje za iteracje
@@ -49,15 +50,16 @@ def plot(x_input, x_plot, ys_plot, weights, iterations):
     plt.show()
 
 
-def plot3d(x, x_plot, w, iterations, title):
+def plot3d(x, x_plot, w, iterations, title, y):
     fig = plt.figure()
     fig.suptitle(f'{title}\n' +
                  f'Iterations: {iterations}\n' +
                  f'Weights: {w}')
 
     ax = fig.add_subplot(projection='3d')
+    colors = ['green' if yi else 'red' for yi in y]
     ax.scatter(x[:, 2:3],
-               x[:, 1:2], x[:, -1:])
+               x[:, 1:2], x[:, -1:], c=colors)
 
     y_plot = x_plot
     x_plot, y_plot = np.meshgrid(x_plot, y_plot)

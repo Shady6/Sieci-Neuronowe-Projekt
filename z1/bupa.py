@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-from z1_data import w, x_plot, x_input, y_and, y_xor, learning_rate, x_kernelized, w_kernelized
-from z1_lib import neuron_process, plot, plot3d, calc_y_plot
+from data import w, x_plot, x_input, y_and, y_xor, learning_rate, x_kernelized, w_kernelized
+from lib import neuron_process, plot, plot3d, calc_y_plot
 
 
 def calc_next_weights_bupa(w, x, y, learning_rate):
@@ -36,7 +36,7 @@ def train(x, y, w, max_iterations=100, make_plot=True):
             break
 
     if make_plot:
-        plot(x_input, x_plot, ys_plot, curr_weights, i)
+        plot(x_input, x_plot, ys_plot, curr_weights, i, y)
     return curr_weights, i
 
 
@@ -51,4 +51,5 @@ train(x_input, y_xor, w)
 print('[BUPA] Training XOR function kernelized')
 result_weights, iterations = train(
     x_kernelized, y_xor, w_kernelized, make_plot=False)
-plot3d(x_kernelized, x_plot, result_weights, iterations, 'BUPA XOR Kernelized')
+plot3d(x_kernelized, x_plot, result_weights,
+       iterations, 'BUPA XOR Kernelized', y_xor)

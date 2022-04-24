@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-from z1_data import w, x_plot, x_input, y_and, y_xor, learning_rate
-from z1_lib import neuron_process, plot, calc_y_plot
+from data import w, x_plot, x_input, y_and, y_xor, learning_rate
+from lib import neuron_process, plot, calc_y_plot
 
 
 def calc_next_weights_pa(w, x,  expected, predicted, learning_rate):
@@ -33,7 +33,7 @@ def train(x, y, max_iterations=100):
 
         i += 1
 
-    plot(x_input, x_plot, ys_plot, curr_weights, i)
+    plot(x_input, x_plot, ys_plot, curr_weights, i, y)
 
 
 plt.title("PA AND")
