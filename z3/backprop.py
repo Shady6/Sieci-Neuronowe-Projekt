@@ -131,7 +131,7 @@ for x_train, y_train in zip(x, y):
     _, _, _, output = calculate_output(x_train, new_w1, new_w2)
     print(f'Given x: {x_train}\t Output: {output}')
 
-new_w1, new_w2 = train_complete(w1, w2, break_on_eps=True, max_iter=1000000000)
+new_w1, new_w2 = train_complete(w1, w2, break_on_eps=True, max_iter=11000)
 print('Tryb energii całkowitej')
 for x_train, y_train in zip(x, y):
     _, _, _, output = calculate_output(x_train, new_w1, new_w2)
